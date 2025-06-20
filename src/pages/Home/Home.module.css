@@ -1,0 +1,49 @@
+.banner{
+  background-image: url('https://preview.wolfthemes.store/app/uploads/sites/31/2018/02/haley-powers-rjhvXX7JBPc-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.button-view::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid black;
+  transition: width 0.4s ease;
+  transform-origin: left;
+  z-index: 1;
+  pointer-events: none;
+}
+.button-view:hover::before {
+  animation: borderRunAround 0.4s linear;
+}
+@keyframes borderRunAround {
+  0% {
+    border-width: 2px 0 0 0;
+    width: 0;
+    height: 0;
+  }
+  25% {
+    border-width: 2px 0 0 0;
+    width: 100%;
+    height: 0;
+  }
+  50% {
+    border-width: 2px 2px 0 0;
+    width: 100%;
+    height: 100%;
+  }
+  75% {
+    border-width: 2px 2px 2px 0;
+    width: 100%;
+    height: 100%;
+  }
+  100% {
+    border-width: 2px 2px 2px 2px;
+    width: 100%;
+    height: 100%;
+  }
+}

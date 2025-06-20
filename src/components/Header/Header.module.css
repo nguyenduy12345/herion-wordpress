@@ -1,0 +1,14 @@
+.preview-header{
+    padding-left: 2rem;
+    padding-right: 1rem;
+}
+.logo-menu{
+    padding: 0 2.5rem 0 2rem;
+}
+.menu-buy:hover .menu-buy-hover{
+    width: 100%;
+    transition: 0.5s;
+}
+.hamburger:hover .hamburger-hover{
+    width: 1.6rem;
+}

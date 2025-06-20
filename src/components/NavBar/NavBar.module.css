@@ -1,0 +1,47 @@
+.navbar_slideIn{
+    animation: slideIn 0.15s;
+    animation-timing-function: ease-in-out
+}
+.navbar_slideOut{
+    animation: slideOut 0.15s;
+    animation-timing-function: ease-in-out;
+}
+.navlink{
+    padding-top: 5rem;
+    padding-left: 3rem;
+}
+.navlink li i{
+       display: flex;
+       align-items: center;
+    }
+@keyframes slideIn{
+    0%{
+        right: -100%
+    }
+    50%{
+        right: -25%
+    }
+    100%{
+        right: 0%;
+    }
+} 
+@keyframes slideOut{
+    0%{
+        right: 0%
+    }
+    50%{
+        right: -25%
+    }
+    100%{
+        right: 100%;
+    }
+}  
+@media (min-width: 568px) {
+    .navlink{
+        padding-top: 6rem;
+        padding-left: 5rem;
+    }
+    .navlink li i{
+        display: none;
+    }   
+}

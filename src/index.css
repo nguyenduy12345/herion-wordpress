@@ -1,0 +1,17 @@
+@import "tailwindcss";
+*{box-sizing: border-box; font-family: var(--font-main);}
+:root{
+  --font-main: "Montserrat", sans-serif;
+  --font-size-text: 12px;
+}
+.font-main{
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.leckerli-one-regular{
+  font-family: "Leckerli One", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
