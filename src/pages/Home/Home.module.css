@@ -20,6 +20,33 @@
 .button-view:hover::before {
   animation: borderRunAround 0.4s linear;
 }
+.button-left:hover .button-left-hover{
+  animation: spinCircle 0.4s linear forwards;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+.button-right:hover .button-right-hover{
+  animation: spinCircle 0.4s linear forwards;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+@keyframes spinCircle {
+  0% {
+    border-width: 2px 0 0 0;
+  }
+  25% {
+    border-width: 2px 0 0 0;
+  }
+  50% {
+    border-width: 2px 2px 0 0;
+  }
+  75% {
+    border-width: 2px 2px 2px 0;
+  }
+  100% {
+    border-width: 2px 2px 2px 2px;
+  }
+}
 @keyframes borderRunAround {
   0% {
     border-width: 2px 0 0 0;

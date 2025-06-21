@@ -24,7 +24,7 @@ const Header = () => {
       </div>
       {/* Logo & menu */}
       <div className={`flex justify-between items-center w-full h-[5.5rem] bg-white shadow-xl ${styles['logo-menu']}`}>
-        <p className='font-extrabold text-3xl leckerli-one-regular'>H</p>
+        <a href='#' className='font-extrabold text-[3.5rem] leckerli-one-regular'>H</a>
         <div 
           onClick={() => setIsNavBar(!isNavBar)}
           className={`flex flex-col gap-[0.15rem] cursor-pointer ${styles['hamburger']} 2xl:hidden`}>
