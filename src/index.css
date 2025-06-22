@@ -1,5 +1,9 @@
 @import "tailwindcss";
 *{box-sizing: border-box; font-family: var(--font-main);}
+html{
+  overflow: scroll;
+  overflow-x: hidden;
+}
 :root{
   --font-main: "Montserrat", sans-serif;
   --font-size-text: 12px;

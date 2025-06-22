@@ -11,14 +11,20 @@
   left: 0;
   width: 100%;
   height: 100%;
-  border: 1px solid black;
   transition: width 0.4s ease;
   transform-origin: left;
   z-index: 1;
   pointer-events: none;
 }
 .button-view:hover::before {
-  animation: borderRunAround 0.4s linear;
+  animation: borderRunAround 0.5s linear;
+  border: 1px solid black;
+}
+.button-left-hover{
+  transform: rotate(180deg);
+}
+.button-right-hover{
+  transform: rotate(-360deg);
 }
 .button-left:hover .button-left-hover{
   animation: spinCircle 0.4s linear forwards;
@@ -29,6 +35,42 @@
   animation: spinCircle 0.4s linear forwards;
   width: 3.5rem;
   height: 3.5rem;
+}
+.music-theme{
+  background-image: url('https://preview.wolfthemes.store/app/uploads/sites/31/2019/10/t-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.dot-click-hover:hover{
+  transform: scale(1.4);
+}
+.dot-click{
+  transform: scale(1.4);
+}
+.dot-click::after{
+  position: absolute;
+  content: " ";
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  border: 4px solid black;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+.dot-click-hover:hover::after{
+  position: absolute;
+  content: " ";
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  border: 4px solid black;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
 }
 @keyframes spinCircle {
   0% {
