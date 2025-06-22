@@ -1,4 +1,7 @@
 import {useState, useEffect, useRef} from 'react'
+import { motion } from 'motion/react'
+
+import { slideDown } from '../../framer-motion/motionPreset'
 import styles from './Header.module.css'
 import NavBar from '../NavBar/NavBar'
 const Header = () => {
@@ -11,9 +14,9 @@ const Header = () => {
   useEffect(() => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((el) => {
-      const rect = el.target.getBoudingClientRect()
+      const rect = el.target.getBoundingClientRect()
       if(el.isIntersecting){
-        if(el.target.id === "dark-section" && rect.top <= 0 && rect.bottom >= 0){
+        if(el.target.id === "dark-section"){
           setIsDark(true)
         }
       }else{
@@ -54,7 +57,7 @@ const Header = () => {
       </div>
       {/* Logo & menu */}
       <div className={`flex justify-between items-center w-full h-[4rem] bg-white/5 ${isDark ? 'hover:bg-black/50' : 'hover:bg-white'} shadow-xl ${styles['logo-menu']}`}>
-        <a ref={logoHeader} href='#' className={`font-extrabold text-[3.5rem] leckerli-one-regular ${isDark ? 'text-white' : 'text-black'}`}>H</a>
+        <a ref={logoHeader} href='#' className={`font-extrabold text-[2.5rem] leckerli-one-regular duration-200 ${isDark ? 'text-white' : 'text-black'} md:text-[3.5rem]`}>H</a>
         <div
           ref={menuNavbar} 
           onClick={() => setIsNavBar(!isNavBar)}
@@ -64,7 +67,13 @@ const Header = () => {
             <div className={`w-[1.6rem] h-[0.2rem] ${isDark ? 'bg-white' : 'bg-black'}`}></div>
         </div>
         <div className={`hidden sm:hidden 2xl:flex relative ${styles['menu-buy']}`}>
-          <p ref={buttonBuyNow} className={`uppercase font-bold cursor-pointer ${isDark ? 'text-white' : 'text-black'}`}>Buy now</p>
+          <motion.p 
+            variants={slideDown}
+            initial = 'initial'
+            whileInView = 'animate'
+            transition={{ duration: 0.5, type: "easeIn"}}
+            viewport={{ once: true }}
+            ref={buttonBuyNow} className={`uppercase font-bold cursor-pointer ${isDark ? 'text-white' : 'text-black'}`}>Buy now</motion.p>
           <div 
             className={`${isDark ? 'bg-white' : 'bg-black'} w-0 h-[1px] absolute bottom-[-0.3rem] left-0 ${styles['menu-buy-hover']}`}>
           </div>
