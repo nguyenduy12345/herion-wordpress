@@ -34,7 +34,7 @@ const Home = () => {
   const [listRelease, setListRelease] = useState([]);
   const [typeRelease, setTypeRelease] = useState("release-single-pages");
   const [indexMusicThemeReviews, setIndexMusicThemeReviews] = useState(0);
-  const [currentIndexImages, setCurrentIndexImages] = useState(1)
+  const [currentIndexImages, setCurrentIndexImages] = useState(1);
   const [countDemoState, setCountDemoState] = useState(0);
   const [countContentElementsState, setCountContentElementsState] = useState(0);
   const [listArtist, setListArtist] = useState([]);
@@ -87,28 +87,21 @@ const Home = () => {
     elementsCount.forEach((el) => obsever.observe(el));
     return () => elementsCount.forEach((el) => obsever.unobserve(el));
   }, [countDemoState, countContentElementsState]);
-  useLayoutEffect(() => {
-    requestAnimationFrame(() => {
-    if (imageSliderWoocommerce.current) {
-      setWidthSlider(imageSliderWoocommerce.current.offsetWidth);
-    }
-  });
-}, []);
   const handlePreSliderWoocommerce = () => {
-    setCurrentIndexImages(prev => {
-      if(prev - 1 < 0){
-        return woocommerceImages.length - 3
+    setCurrentIndexImages((prev) => {
+      if (prev - 1 < 0) {
+        return woocommerceImages.length - 3;
       }
-      return prev - 1
-    })
+      return prev - 1;
+    });
   };
   const handleNextSliderWoocommerce = () => {
-    setCurrentIndexImages(prev => {
-      if(prev + 1 > woocommerceImages.length - 1){
-        return 2
+    setCurrentIndexImages((prev) => {
+      if (prev + 1 > woocommerceImages.length - 1) {
+        return 2;
       }
-      return prev + 1
-    })
+      return prev + 1;
+    });
   };
   const handlePrevMusicThemeReviews = () => {
     if (indexMusicThemeReviews - 1 < 0) {
@@ -340,9 +333,7 @@ const Home = () => {
               </a>
             </motion.li>
           </motion.ul>
-          <p className="text-white text-center text-[1.2rem]">
-            and more...
-          </p>
+          <p className="text-white text-center text-[1.2rem]">and more...</p>
         </div>
       </div>
       {/* Discography */}
@@ -561,8 +552,10 @@ const Home = () => {
           <div
             ref={sliderWoocommerce}
             style={{
-              transform: `translateX(-${currentIndexImages * widthSlider + 2 * 16}px)`,
-              transition: "transform 0.5s ease"
+              transform: `translateX(-${
+                currentIndexImages * widthSlider + 2 * 16
+              }px)`,
+              transition: "transform 0.5s ease",
             }}
             className="relative duration-75 ease-in-out transition-transform flex flex-nowrap w-full mx-auto gap-x-[2rem]"
           >
@@ -575,13 +568,20 @@ const Home = () => {
               woocommerceImages.map((image, index) => (
                 <img
                   ref={imageSliderWoocommerce}
+                  onLoad={() => {
+                    if (imageSliderWoocommerce.current) {
+                      setWidthSlider(
+                        imageSliderWoocommerce.current.offsetWidth
+                      );
+                    }
+                  }}
                   className="w-[49%] h-auto md:w-[30.8%] shadow-2xl hover:-translate-y-[0.5rem] duration-200 ease-linear"
                   key={index}
                   src={image}
                   loading="lazy"
                 />
               ))}
-              <img
+            <img
               className="w-[49%] h-auto md:w-[30.8%] shadow-2xl hover:-translate-y-[0.5rem] duration-200 ease-linear"
               src={woocommerceImages[0]}
               loading="lazy"
